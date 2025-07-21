@@ -1,38 +1,29 @@
 package ex00;
-
-/**
- * 목표 : 다형성, 동적바인딩
- * 1. 소나타(오브젝트 == 객체), 제네시스(오브젝트 ==객체) == 자동차(추상)
- */
-
-abstract class Car { // new x
+// 2. 동적 바인딩
+abstract class Car {
     abstract void run();
 }
 
-class Sonata extends Car{
-    @Override // 재정의
+class Ganesis extends Car {
+    // 재정의
     void run() {
-        System.out.println("소나타 달린다");
-    } // sonata -> car
-
+        System.out.println("Genesis run");
+    }
 }
 
-class Genesis extends Car{
-    @Override // 재정의
+class Sonata extends Car { // 소나타는 타입이 두개가 된거다. 소나타, 카
+    // 부모가 들고있는 run을 재정의함
     void run() {
-        System.out.println("제네시스 달린다");
-    } // genesis -> car
-
+        System.out.println("Sonata run");
+    }
 }
 
 public class Mem02 {
-
     public static void main(String[] args) {
-        Car s = new Sonata(); // 메모리 sonata(run), car(run)
-        // car의 run을 호출하러 갔더니, sonata가 run을 재정의해서,
-        // car의 run의 오버라이드(무효화)되고, sonata의 run이 호출된다.
-        s.run();
-        Car g = new Genesis(); // 메모리 genesis(run), car(run)
-        g.run();
+        Car car1 = new Sonata();
+        car1.run();
+
+        Car car2 = new Ganesis();
+        car2.run();
     }
 }

@@ -1,7 +1,7 @@
 package ex01;
 
-public class Mouse extends Animal {
-    private String name = "쥐";
+public class Cat extends Animal {
+    private String name = "고양이";
 
     public String getName() {
         return name;
